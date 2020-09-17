@@ -1,4 +1,5 @@
 ## *Responsive developing*
++ Landscape mode optmizing
 # expense_tracker
 
 A new Flutter project.
