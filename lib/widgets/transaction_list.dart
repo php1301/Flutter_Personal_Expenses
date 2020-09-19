@@ -6,7 +6,8 @@ class TransactionList extends StatelessWidget {
   final List<Transaction> transactions;
   final Function delelteTx;
   TransactionList(this.transactions, this.delelteTx);
-
+  // use const widget when the overall widget included children is not dynamic
+  // need a const constructor to enable this
   @override
   Widget build(BuildContext context) {
     // return Container(
@@ -22,7 +23,7 @@ class TransactionList extends StatelessWidget {
                     'No Transactions added yet!',
                     style: Theme.of(context).textTheme.headline6,
                   ),
-                  SizedBox(height: 10), // Spacing,
+                  const SizedBox(height: 10), // Spacing,
                   Container(
                       height: constraints.maxHeight * 0.6,
                       child: Image.asset(
@@ -42,7 +43,7 @@ class TransactionList extends StatelessWidget {
                   leading: CircleAvatar(
                     radius: 30,
                     child: Padding(
-                      padding: EdgeInsets.all(10),
+                      padding: const EdgeInsets.all(10),
                       child: FittedBox(
                           child: Text('\$${transactions[index].amount}')),
                     ),
@@ -51,15 +52,16 @@ class TransactionList extends StatelessWidget {
                       style: Theme.of(ctx).textTheme.headline6),
                   subtitle: Text(
                       DateFormat.yMMMEd().format(transactions[index].date)),
-                  trailing: MediaQuery.of(context).size.width > 360  // Responsive base on width
+                  trailing: MediaQuery.of(context).size.width >
+                          360 // Responsive base on width
                       ? FlatButton.icon(
                           textColor: Theme.of(context).errorColor,
                           onPressed: () => delelteTx(transactions[index].id),
-                          icon: Icon(Icons.delete),
-                          label: Text('Delete'),
+                          icon: const Icon(Icons.delete),
+                          label: const Text('Delete'),
                         )
                       : IconButton(
-                          icon: Icon(Icons.delete),
+                          icon: const Icon(Icons.delete),
                           color: Theme.of(context).errorColor,
                           onPressed: () => delelteTx(transactions[index].id),
                         ),
