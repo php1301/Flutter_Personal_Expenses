@@ -1,6 +1,6 @@
-## *Responsive developing*
-+ Landscape mode optmizing
-+ Orientation modifying
+## *ListView*
++ ListView.builder(...) key attr bug
+
 # expense_tracker
 
 A new Flutter project.
